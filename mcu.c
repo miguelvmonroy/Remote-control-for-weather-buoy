@@ -196,13 +196,13 @@ int main(void)
     {
         // --- CONTROL DE LED HALLOW ---
         if (P1IN & PIN_LED_HALLOW_ENCENDIDA_APAGADA) {
-            P1OUT &= ~PIN_TX_CONDICION_LED_HALLOW;   // Apagar LED Hallow
-        } else {
             P1OUT |= PIN_TX_CONDICION_LED_HALLOW;    // Encender LED Hallow
+        } else {
+            P1OUT &= ~PIN_TX_CONDICION_LED_HALLOW;   // Apagar LED Hallow
         }
         
         // --- CONTROL DE PULSOS A/B (botón Boya) ---
-        if (P1IN & PIN_BOTON_ENCENDER_APAGAR_BOYA) {
+        if ((P1IN & PIN_BOTON_ENCENDER_APAGAR_BOYA) == 0) {
             // Botón no presionado: apagar ambos pulsos
             P7OUT &= ~PIN_GENERA_PULSO_B;
             P7OUT &= ~PIN_GENERA_PULSO_A;
@@ -212,12 +212,12 @@ int main(void)
                 P7OUT &= ~PIN_GENERA_PULSO_A;
                 P7OUT |= PIN_GENERA_PULSO_B;   // Activar pulso B
                 Bandera = 1;
-                __delay_cycles(50000);         // Retardo de 1 ms (25 MHz)
+                __delay_cycles(100);         // Retardo de 1 ms (25 MHz)
             } else {
                 P7OUT &= ~PIN_GENERA_PULSO_B;
                 P7OUT |= PIN_GENERA_PULSO_A;   // Activar pulso A
                 Bandera = 0;
-                __delay_cycles(50000);         // Retardo de 1 ms (25 MHz)
+                __delay_cycles(100);         // Retardo de 1 ms (25 MHz)
             }
         }
         
