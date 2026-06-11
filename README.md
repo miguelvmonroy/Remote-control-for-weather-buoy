@@ -175,3 +175,70 @@ main()
 ## Autor
 
 Proyecto desarrollado para monitoreo y control de señales de estado de Boya y Hallow mediante plataforma MSP430.
+
+
+
+
+
+
+## Mapa de Pines
+
+### Puerto 1
+
+| Pin  | Nombre en Código                   | Dirección | Descripción                                                                                                |
+| ---- | ---------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------- |
+| P1.0 | `PIN_TX_CONDICION_LED_BOYA`        | Salida    | Indica el estado detectado de la Boya. Se activa cuando la entrada de monitoreo de la Boya está encendida. |
+| P1.1 | `PIN_BOTON_ENCENDER_APAGAR_BOYA`   | Entrada   | Lee el estado del botón de activación de la Boya. Controla la generación de pulsos A y B.                  |
+| P1.2 | `PIN_TX_CONDICION_LED_HALLOW`      | Salida    | Indica el estado detectado de Hallow. Se activa cuando la entrada correspondiente está encendida.          |
+| P1.5 | `PIN_LED_HALLOW_ENCENDIDA_APAGADA` | Entrada   | Entrada de monitoreo del LED Hallow.                                                                       |
+
+### Puerto 2
+
+| Pin  | Nombre en Código  | Dirección | Descripción                                                            |
+| ---- | ----------------- | --------- | ---------------------------------------------------------------------- |
+| P2.0 | `PIN_MCLK_SALIDA` | Salida    | Señal de reloj principal (MCLK) para medición y diagnóstico.           |
+| P2.2 | `PIN_ACLK_SALIDA` | Salida    | Señal de reloj auxiliar (ACLK) para medición y validación del sistema. |
+
+### Puerto 5
+
+| Pin  | Nombre en Código                 | Dirección | Descripción                              |
+| ---- | -------------------------------- | --------- | ---------------------------------------- |
+| P5.2 | `PIN_LED_BOYA_ENCENDIDA_APAGADA` | Entrada   | Entrada de monitoreo del LED de la Boya. |
+
+### Puerto 7
+
+| Pin  | Nombre en Código     | Dirección | Descripción                                                |
+| ---- | -------------------- | --------- | ---------------------------------------------------------- |
+| P7.4 | `PIN_GENERA_PULSO_B` | Salida    | Genera el Pulso B cuando la lógica de control lo requiere. |
+| P7.5 | `PIN_GENERA_PULSO_A` | Salida    | Genera el Pulso A cuando la lógica de control lo requiere. |
+| P7.7 | `PIN_SMCLK_SALIDA`   | Salida    | Señal de reloj SMCLK para medición y diagnóstico.          |
+
+---
+
+## Resumen de Entradas y Salidas
+
+### Entradas Digitales
+
+| Pin  | Señal             |
+| ---- | ----------------- |
+| P1.1 | Botón Boya        |
+| P1.5 | Estado LED Hallow |
+| P5.2 | Estado LED Boya   |
+
+### Salidas Digitales
+
+| Pin  | Señal                   |
+| ---- | ----------------------- |
+| P1.0 | Indicador Estado Boya   |
+| P1.2 | Indicador Estado Hallow |
+| P7.4 | Pulso B                 |
+| P7.5 | Pulso A                 |
+
+### Salidas de Reloj
+
+| Pin  | Señal |
+| ---- | ----- |
+| P2.0 | MCLK  |
+| P2.2 | ACLK  |
+| P7.7 | SMCLK |
+
